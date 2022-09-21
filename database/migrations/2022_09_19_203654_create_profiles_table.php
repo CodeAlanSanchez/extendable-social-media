@@ -16,9 +16,10 @@ return new class extends Migration
         Schema::create('profile', function (Blueprint $table) {
             $table->id();
 
+            $table->foreignId('user');
             $table->string('profile_picture_url');
             $table->string('banner_picture_url');
-            $table->string('username');
+            $table->string('username')->unique();
             $table->string('biography');
             $table->string('website');
 
