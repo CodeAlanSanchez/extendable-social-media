@@ -9,6 +9,11 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'caption',
+        'image_url'
+    ];
+
     public function like()
     {
         return $this->morphMany(Like::class, 'likeable');
