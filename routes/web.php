@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CommentController;
+use App\Http\Controllers\LikeController;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -16,7 +20,12 @@ use Inertia\Inertia;
 */
 
 Route::get('/', function () {
-    return Inertia::render('Welcome');
+    return Inertia::render('Home');
 });
+
+Route::resource('/profiles', ProfileController::class);
+Route::resource('/likes', LikeController::class);
+Route::resource('/posts', PostController::class);
+Route::resource('/comments', CommentController::class);
 
 require __DIR__ . '/auth.php';
