@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('profiles', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user');
+            $table->foreignId('user_id');
             $table->string('profile_picture_url');
             $table->string('banner_picture_url');
             $table->string('username')->unique();

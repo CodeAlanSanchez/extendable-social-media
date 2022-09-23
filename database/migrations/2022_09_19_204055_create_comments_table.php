@@ -16,8 +16,8 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
 
-            $table->foreignId('user');
-            $table->foreignId('commentable');
+            $table->foreignId('user_id');
+            $table->foreignId('commentable_id');
             $table->string('commentable_type');
             $table->string('content');
 
