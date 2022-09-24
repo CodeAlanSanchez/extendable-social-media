@@ -1,7 +1,16 @@
-interface Props {}
+import PostItem from "@/Components/Post/PostItem";
+import { Post } from "@/Types/models";
 
-const Show: React.FC<Props> = ({}: Props) => {
-    return <></>;
+interface Props {
+    post: Post;
+}
+
+const Show: React.FC<Props> = ({ post }: Props) => {
+    return (
+        <div>
+            <PostItem post={post} />
+        </div>
+    );
 };
 
 export default Show;
