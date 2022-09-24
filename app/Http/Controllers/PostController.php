@@ -16,7 +16,7 @@ class PostController extends Controller
      */
     public function index()
     {
-        return Inertia::render('posts/index', ['post' => Post::paginate(18)]);
+        return Inertia::render('Posts/Index', ['post' => Post::paginate(18)]);
     }
 
     /**
@@ -26,7 +26,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return Inertia::render('posts/create');
+        return Inertia::render('Posts/Create');
     }
 
     /**
@@ -47,7 +47,9 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
-        return Inertia::render('posts/show', [$post]);
+        $post->load('user');
+
+        return Inertia::render('Posts/Show', ['post' => $post]);
     }
 
     /**
@@ -58,7 +60,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return Inertia::render('posts/edit', [$post]);
+        return Inertia::render('Posts/Edit', [$post]);
     }
 
     /**
