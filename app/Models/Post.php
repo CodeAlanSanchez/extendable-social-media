@@ -14,6 +14,15 @@ class Post extends Model
         'image_url'
     ];
 
+    protected $appends = [
+        'user'
+    ];
+
+    public function getUserAttribute()
+    {
+        return $this->user();
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
