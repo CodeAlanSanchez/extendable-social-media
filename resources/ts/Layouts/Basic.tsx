@@ -7,11 +7,11 @@ interface Props {
 
 const Basic: React.FC<Props> = ({ children }: Props) => {
     return (
-        <div>
+        <>
             <Header />
             {children}
             <Footer />
-        </div>
+        </>
     );
 };
 
