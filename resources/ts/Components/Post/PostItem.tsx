@@ -16,7 +16,7 @@ const PostItem: React.FC<Props> = ({ post }: Props) => {
 
     return (
         <div
-            className={`w-64 h-80 leading-4 bg-[url('img/${post.image_url})] rounded-[.266rem]`}
+            className={`h-80 shadow-lg leading-4 bg-[url('img/${post.image_url})] rounded-[.266rem]`}
         >
             <div className="text-white flex flex-col justify-end align-bottom bg-gradient-to-t from-black to-transparent min-w-full p-4 h-full rounded-[.266rem]">
                 <h4 className="font-bold text-lg">{post.user.username}</h4>
