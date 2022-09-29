@@ -7,7 +7,7 @@ const UsernameLink: React.FC<Props> = ({ username }: Props) => {
         <span>
             <a
                 className="text-md font-semibold hover:text-indigo-700"
-                href={`/profile/${username}`}
+                href={`/profiles/${username}`}
             >
                 {username}
             </a>
