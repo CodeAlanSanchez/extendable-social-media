@@ -23,7 +23,7 @@ Route::get('/', function () {
     return Inertia::render('Home');
 });
 
-Route::resource('/profiles', ProfileController::class);
+Route::resource('/profiles', ProfileController::class)->middleware(['auth']);
 Route::resource('/likes', LikeController::class);
 Route::resource('/posts', PostController::class);
 Route::resource('/comments', CommentController::class);
