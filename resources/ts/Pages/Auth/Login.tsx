@@ -4,7 +4,7 @@ import React from "react";
 interface Props {}
 
 const Login: React.FC<Props> = ({}: Props) => {
-    const { setData, post } = useForm({
+    const { data, setData, post } = useForm({
         email: "",
         password: "",
     });
@@ -22,12 +22,15 @@ const Login: React.FC<Props> = ({}: Props) => {
     };
 
     return (
-        <div> as string | boolean
+        <div>
             <form
                 action=""
                 onSubmit={(e) => handleSubmit(e)}
-                className="flex flex-col w-64 rounded shadow bg-slate-100 p-6 mx-auto mt-8"
+                className="flex flex-col w-64 rounded shadow bg-slate-100 p-4 mx-auto mt-8"
             >
+                <a href="/" className="text-blue-600 mb-2 hover:text-blue-400">
+                    &#8592; Back
+                </a>
                 <h1 className="text-xl mb-2">Login</h1>
                 <label htmlFor="email" className="text-slate-700">
                     Email
@@ -37,8 +40,9 @@ const Login: React.FC<Props> = ({}: Props) => {
                     name="email"
                     id="email"
                     placeholder="Email"
-                    className="h-8 mb-2 px-2"
+                    className="mb-2 border-slate-200 border-b-slate-300 rounded shadow w-full"
                     onChange={(e) => handleChange(e)}
+                    value={data.email}
                 />
                 <label htmlFor="password" className="text-slate-700">
                     Password
@@ -48,12 +52,13 @@ const Login: React.FC<Props> = ({}: Props) => {
                     name="password"
                     id="password"
                     placeholder="Password"
-                    className="h-8 mb-4 px-2"
+                    className="mb-4 border-slate-200 border-b-slate-300 rounded shadow w-full"
                     onChange={(e) => handleChange(e)}
+                    value={data.password}
                 />
                 <button
                     type="submit"
-                    className="rounded shadow bg-blue-600 text-white w-24 p-1 py-2 hover:bg-blue-500"
+                    className="rounded bg-blue-600 text-white w-24 p-1 py-2 hover:bg-blue-500 shadow"
                 >
                     Login
                 </button>
