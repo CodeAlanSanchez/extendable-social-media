@@ -25,7 +25,7 @@ const Show: React.FC<Props> = ({ post }: Props) => {
                         <p>{post.likes}</p>
                     </div>
                 </div>
-                <CommentForm />
+                <CommentForm post={post} />
                 {post.comments?.map((comment) => (
                     <CommentItem key={comment.id} comment={comment} />
                 ))}
