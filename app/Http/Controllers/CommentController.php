@@ -5,9 +5,17 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Models\Comment;
+use App\Models\Post;
+use Auth;
+use DB;
 
 class CommentController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => 'store']);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -36,7 +44,22 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request)
     {
-        //
+        $data = $request->safe()->only(['content', 'commentable_type', 'commentable_id']);
+
+        DB::transaction(function () use ($data) {
+            switch ($data['commentable_type']) {
+                case 'post':
+                    Post::first($data['commentable_id']);
+
+                    Comment::create(array_merge($data, ['commentable_type' => 'App\Models\Post'], ['user_id' => Auth::user()->id]));
+                    break;
+                default:
+                    DB::rollback();
+                    return response()->json(['error' => 'incorrect commentable type']);
+            }
+
+            return response()->json();
+        });
     }
 
     /**
