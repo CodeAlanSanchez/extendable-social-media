@@ -15,7 +15,7 @@ class Post extends Model
     ];
 
     protected $appends = [
-        'user'
+        'user',
     ];
 
     public function getUserAttribute()
@@ -33,7 +33,7 @@ class Post extends Model
         return $this->morphMany(Like::class, 'likeable');
     }
 
-    public function comment()
+    public function comments()
     {
         return $this->morphMany(Comment::class, 'commentable');
     }
