@@ -39,8 +39,8 @@ const CommentForm: React.FC<Props> = ({ post }: Props) => {
             <div className="flex">
                 <input
                     type="text"
-                    id="comment"
-                    name="comment"
+                    id="content"
+                    name="content"
                     value={data.content}
                     onChange={(e) => handleChange(e)}
                     placeholder="Write your thoughts..."
