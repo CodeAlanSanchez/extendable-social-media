@@ -9,13 +9,29 @@ class Comment extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'content',
+        'commentable_type',
+        'commentable_id',
+        'user_id'
+    ];
+
+    protected $appends = [
+        'user'
+    ];
+
+    public function getUserAttribute()
+    {
+        return $this->user();
+    }
+
     public function commentable()
     {
-        return $this->morphTo();
+        return $this->morphTo(__FUNCTION__, 'commentable_type', 'commentable_id');
     }
 
     public function user()
     {
-        return $this->belongsToMany(User::class);
+        return $this->belongsTo(User::class);
     }
 }
