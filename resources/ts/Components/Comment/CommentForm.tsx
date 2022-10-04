@@ -46,7 +46,7 @@ const CommentForm: React.FC<Props> = ({ post }: Props) => {
                     placeholder="Write your thoughts..."
                     className="px-2 py-1 w-full border-x-0 border-t-0 border-b-2 border-transparent focus:ring-0 focus:outline-none focus:border-x-0 focus:border-t-0 focus:border-b-slate-200"
                 />
-                <button className="ml-4 bg-blue-600 text-white hover:bg-blue-500 outline outline-blue-300 px-4 p-2 rounded shadow">
+                <button className="ml-4 bg-blue-600 text-white hover:bg-blue-500 outline focus:outline-blue-300 px-4 p-2 rounded shadow">
                     Submit
                 </button>
             </div>
