@@ -16,14 +16,9 @@ class Comment extends Model
         'user_id'
     ];
 
-    protected $appends = [
+    protected $with = [
         'user'
     ];
-
-    public function getUserAttribute()
-    {
-        return $this->user();
-    }
 
     public function commentable()
     {
