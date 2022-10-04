@@ -7,7 +7,7 @@ interface Props {
 
 const CommentItem: React.FC<Props> = ({ comment }: Props) => {
     return (
-        <div>
+        <div className="mt-4 rounded p-4 bg-slate-100">
             <UsernameLink username={comment.user.username} />
             <p>{comment.content}</p>
         </div>
