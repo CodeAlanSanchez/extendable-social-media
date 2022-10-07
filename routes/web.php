@@ -4,6 +4,7 @@ use App\Http\Controllers\CommentController;
 use App\Http\Controllers\LikeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\SaveController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
@@ -24,7 +25,8 @@ Route::get('/', function () {
 });
 
 Route::resource('/profiles', ProfileController::class)->middleware(['auth']);
-Route::resource('/likes', LikeController::class);
+Route::resource('/likes', LikeController::class)->middleware(['auth']);
+Route::resource('/saves', SaveController::class);
 Route::resource('/posts', PostController::class);
 Route::resource('/comments', CommentController::class);
 
