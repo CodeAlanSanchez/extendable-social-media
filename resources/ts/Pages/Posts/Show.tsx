@@ -3,6 +3,7 @@ import CommentForm from "@/Components/Comment/CommentForm";
 import CommentItem from "@/Components/Comment/CommentItem";
 import Basic from "@/Layouts/Basic";
 import { Comment, Post, User } from "@/Types/models";
+import { Inertia } from "@inertiajs/inertia";
 import { BsBookmark, BsHeart } from "react-icons/bs";
 
 interface Props {
@@ -10,9 +11,13 @@ interface Props {
 }
 
 const Show: React.FC<Props> = ({ post }: Props) => {
-    const handleLike = () => {};
+    const handleLike = () => {
+        Inertia.post(`/likes`, { likeable_type: "post", likeable_id: post.id });
+    };
 
-    const handleSave = () => {};
+    const handleSave = () => {
+        Inertia.post(`/saves`, { saveable_type: "post", saveable_id: post.id });
+    };
 
     return (
         <Basic>
@@ -21,7 +26,7 @@ const Show: React.FC<Props> = ({ post }: Props) => {
                     <div className="bg-white mb-4 md:mr-4">
                         <img src={post.image_url} alt={post.caption} />
                     </div>
-                    <div className="sm:border-t-2 md:border-t-0 md:border-l-2 border-slate-200 pt-2 md:pl-8 flex flex-col">
+                    <div className="sm:border-t-2 md:border-t-0 md:border-l-2 border-slate-200 pt-2 md:pt-0 md:pl-4 flex flex-col">
                         <div>
                             <div className="flex flex-row gap-4 mb-2">
                                 <button
