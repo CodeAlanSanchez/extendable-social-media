@@ -10,20 +10,30 @@ interface Props {
 }
 
 const Show: React.FC<Props> = ({ post }: Props) => {
+    const handleLike = () => {};
+
+    const handleSave = () => {};
+
     return (
         <Basic>
             <div className="max-w-2xl mx-auto mt-16">
-                <div className="flex flex-row bg-white rounded shadow h-72 p-4 mb-8">
-                    <div className="bg-white mr-8">
+                <div className="flex flex-col md:flex-row bg-white rounded shadow md:h-72 mb-8 md:mb-8 p-4">
+                    <div className="bg-white mb-4 md:mr-4">
                         <img src={post.image_url} alt={post.caption} />
                     </div>
-                    <div className="border-l-2 border-slate-200 pl-8 flex flex-col">
+                    <div className="sm:border-t-2 md:border-t-0 md:border-l-2 border-slate-200 pt-2 md:pl-8 flex flex-col">
                         <div>
                             <div className="flex flex-row gap-4 mb-2">
-                                <button type="button">
+                                <button
+                                    type="button"
+                                    onClick={() => handleLike()}
+                                >
                                     <BsHeart size={20} />
                                 </button>
-                                <button type="button">
+                                <button
+                                    type="button"
+                                    onClick={() => handleSave()}
+                                >
                                     <BsBookmark size={20} />
                                 </button>
                             </div>
